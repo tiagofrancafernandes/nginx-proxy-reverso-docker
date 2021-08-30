@@ -1,51 +1,23 @@
-# Descrição
+## Como fazer proxy
 
-Docker utilizando o compose, arquivo de configuração com variáveis de ambiente e criando um container nginx 1.13.3
+* Copie o exemplo para o arquivo de configuração
 
-# Configuração Container Nginx
+```shell
+cp default-example.conf nginx/sites/default.conf
+```
 
-1. Exposição de portas
+* Edite o arquivo `nginx/sites/default.conf` modificando o host para as suas necessidades.
 
-	80 e 443
+* Se precisar de mapear mais de 1 host, descomente os hosts adicionais em `nginx/sites/default.conf` ou crie novos.
 
-2. Volume (Obs: verificar se na configuração do docker -> drivers compartilhados, as unidades c: e/ou d: estão habilitadas)
+* Não se esqueça copiar o arquivo `env-example` para `.env` e ditar as portas conforme desejado.
 
-	Aplicação: htdocs -> /var/www/html
-	
-	Logs: nginx/logs -> /var/log/nginx
-	
-	Virtual Host: nginx/sites -> /etc/nginx/conf.d
-	
-3. Virtual Host
+```shell
+cp env-example .env
+```
 
-	Criação do vhost modelo http://api.dev (vhost modificável)
+* Inicie o container
 
-# Como utitilizar
-
-1. Clone o repositório usando o comando:
-
-   git clone https://github.com/danielnogueira-dev/Docker-Compose-Nginx
-
-2. Entre na pasta Docker-Compose-Nginx e copie o arquivo env-example para .env.
-
-   cp env-example .env
-
-3. Rode seu container:
-
-   docker-compose up -d
-
-4. Adicione os domínios no arquivo de hosts do windows.
-
-   127.0.0.1 localhost
-
-   127.0.0.1 api.dev
-
-5. Abra no navegador
-
-   http://localhost
-
-   http://api.dev
-
-6. Acessar o shell do container:
-    
-	winpty docker exec -it nginx bash
+```shell
+docker-compose up
+```

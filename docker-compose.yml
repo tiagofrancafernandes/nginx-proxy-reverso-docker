@@ -13,8 +13,8 @@ services:
             - ${NGINX_SITES_PATH}:/etc/nginx/conf.d
         env_file: .env
         ports:
-            - "${ADDRESS_PROXY_01_PORT}:8081"
-            - "${ADDRESS_PROXY_02_PORT}:8082"
-            - "${ADDRESS_PROXY_03_PORT}:8083"
-            - "${ADDRESS_PROXY_04_PORT}:8084"
-            - "${ADDRESS_PROXY_05_PORT}:8085"
+            - "${ADDRESS_PROXY_01_PORT:-8081}:8081"
+            - "${ADDRESS_PROXY_02_PORT:-8082}:8082"
+            - "${ADDRESS_PROXY_03_PORT:-8083}:8083"
+            - "${ADDRESS_PROXY_04_PORT:-8084}:8084"
+            - "${ADDRESS_PROXY_05_PORT:-8085}:8085"
