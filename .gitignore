@@ -70,3 +70,7 @@ Thumbs.db
 *.zip
 
 .DS_Store
+
+# ignora pastas e arquivos iniciadas com IGNORE* e pasta _dev_dir
+/IGNORE*
+/_dev_dir
